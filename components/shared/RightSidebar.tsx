@@ -5,50 +5,50 @@ import RenderTag from "./RenderTag";
 
 const hotQuestions = [
   {
-    _id: 1,
+    _id: "1",
     title: "Is it only me or the font is bolder than necessary?",
   },
   {
-    _id: 2,
+    _id: "2",
     title: "Is it only me or the font is bolder than necessary?",
   },
   {
-    _id: 3,
+    _id: "3",
     title: "Is it only me or the font is bolder than necessary?",
   },
   {
-    _id: 4,
+    _id: "4",
     title: "Is it only me or the font is bolder than necessary?",
   },
   {
-    _id: 5,
+    _id: "5",
     title: "Is it only me or the font is bolder than necessary?",
   },
 ];
 
 const popularTags = [
   {
-    _id: 1,
+    _id: "1",
     name: "javascript",
     totalQuestions: 5,
   },
   {
-    _id: 2,
+    _id: "2",
     name: "react",
     totalQuestions: 3,
   },
   {
-    _id: 3,
+    _id: "3",
     name: "next",
     totalQuestions: 2,
   },
   {
-    _id: 4,
+    _id: "4",
     name: "vue",
     totalQuestions: 2,
   },
   {
-    _id: 5,
+    _id: "5",
     name: "redux",
     totalQuestions: 1,
   },
