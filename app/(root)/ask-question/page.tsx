@@ -1,14 +1,11 @@
 import Question from "@/components/shared/forms/Question";
 import { getUserById } from "@/lib/actions/user.action";
-// eslint-disable-next-line no-unused-vars
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import React from "react";
 
 const AskQuestion = async () => {
-  // const { userId } = auth();
-
-  const userId = "clerk123456";
+  const { userId } = auth();
 
   if (!userId) {
     redirect("/sign-in");
