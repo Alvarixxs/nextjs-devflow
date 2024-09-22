@@ -3,7 +3,7 @@ import { getTopInteractedTags } from "@/lib/actions/tag.action";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import RenderTag from "../RenderTag";
+import RenderTag from "../shared/RenderTag";
 
 interface Props {
   user: {
