@@ -40,3 +40,11 @@ export const formatLargeNumber = (num: number): string => {
     return num.toString();
   }
 };
+
+export function getMonthYear(date: Date): string {
+  const options: Intl.DateTimeFormatOptions = {
+    month: "long",
+    year: "numeric",
+  };
+  return date.toLocaleDateString("en-US", options);
+}
