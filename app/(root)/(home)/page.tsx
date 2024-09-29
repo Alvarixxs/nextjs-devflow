@@ -1,15 +1,47 @@
-import QuestionCard from "@/components/shared/cards/QuestionCard";
+import QuestionCard from "@/components/cards/QuestionCard";
 import Filter from "@/components/shared/Filter";
-import HomeFilters from "@/components/shared/home/HomeFilters";
+import HomeFilters from "@/components/home/HomeFilters";
 import NoResult from "@/components/shared/NoResult";
 import LocalSearchBar from "@/components/shared/search/LocalSearchBar";
 import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filters";
-import { getQuestions } from "@/lib/actions/question.action";
+import {
+  getQuestions,
+  getRecommendedQuestions,
+} from "@/lib/actions/question.action";
 import Link from "next/link";
+import { SearchParamsProps } from "@/types";
+import Pagination from "@/components/shared/Pagination";
 
-const Home = async () => {
-  const result = await getQuestions({});
+import type { Metadata } from "next";
+import { auth } from "@clerk/nextjs/server";
+
+export const metadata: Metadata = {
+  title: "Home | Dev Overflow",
+  description: "Dev Overflow is a community of 1,000,000+ developers. Join us.",
+};
+
+const Home = async ({ searchParams }: SearchParamsProps) => {
+  const { userId } = auth();
+  let result;
+
+  if (searchParams?.filter === "recommended") {
+    if (userId) {
+      result = await getRecommendedQuestions({
+        userId,
+        searchQuery: searchParams.q,
+        page: searchParams.page ? +searchParams.page : 1,
+      });
+    } else {
+      result = { questions: [], isNext: false };
+    }
+  } else {
+    result = await getQuestions({
+      searchQuery: searchParams.q,
+      filter: searchParams.filter,
+      page: searchParams.page ? +searchParams.page : 1,
+    });
+  }
 
   return (
     <>
@@ -66,6 +98,13 @@ const Home = async () => {
             linkTitle="Ask a Question"
           />
         )}
+      </div>
+
+      <div className="mt-10">
+        <Pagination
+          pageNumber={searchParams?.page ? +searchParams.page : 1}
+          isNext={result?.isNext || false}
+        />
       </div>
     </>
   );
