@@ -74,7 +74,6 @@ const AllAnswers = async ({
                   hasDownvoted={answer.downvotes.includes(userId)}
                 />
               </div>
-              ç{" "}
             </div>
 
             <ParseHTML data={answer.content} />

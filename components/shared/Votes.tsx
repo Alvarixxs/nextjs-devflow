@@ -12,7 +12,6 @@ import { formatLargeNumber } from "@/lib/utils";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect } from "react";
-import { undefined } from "zod";
 
 interface Props {
   type: "Question" | "Answer";
@@ -39,6 +38,13 @@ const Votes = ({
   const router = useRouter();
 
   const handleSave = async () => {
+    if (!userId) {
+      return toast({
+        title: "Please log in",
+        description: "You must be logged in to perform this action",
+      });
+    }
+
     await toggleSaveQuestion({
       userId: JSON.parse(userId),
       questionId: JSON.parse(itemId),
@@ -113,7 +119,7 @@ const Votes = ({
   useEffect(() => {
     viewQuestion({
       questionId: JSON.parse(itemId),
-      userId: userId ? JSON.parse(userId) : undefined,
+      userId: userId ? JSON.parse(userId) : null,
     });
   }, [itemId, userId, pathname, router]);
 
