@@ -65,6 +65,10 @@ const Answer = ({ question, questionId, authorId }: Props) => {
 
         editor.setContent("");
       }
+
+      return toast({
+        title: "Answer Submitted",
+      });
     } catch (error) {
       console.log(error);
     } finally {
@@ -96,7 +100,7 @@ const Answer = ({ question, questionId, authorId }: Props) => {
       }
 
       return toast({
-        title: "Answer Submitted",
+        title: "Answer Created by AI",
       });
     } catch (error) {
     } finally {
