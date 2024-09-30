@@ -23,6 +23,15 @@ Utilizes **Mongoose** for seamless interaction with **MongoDB**, ensuring effici
 ### AI-Powered Post Recommendations
 A custom algorithm recommends related posts, increasing user engagement.  
 
+### Global Search System
+Browse through the entire database with a powerful global search feature, allowing users to search for questions, tags, and posts quickly and effectively.  
+![image](https://github.com/user-attachments/assets/bd788087-f93d-4d10-b436-b837fc30c35c)  
+
+### Hot Questions and Tags
+Easily find the most popular and active questions and tags with a dedicated section highlighting the trending topics.  
+![image](https://github.com/user-attachments/assets/e13c0955-9eff-4fae-8db3-af49a24e08fc)  
+
+
 ### Pagination and Filtering
 Browse through large sets of questions with intuitive pagination and filtering.  
 ![image](https://github.com/user-attachments/assets/f6b519a2-3d23-41a4-b6b3-b510d5e90f63)  
